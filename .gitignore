@@ -1,6 +1,2 @@
 cache
 *.cache
-
-*.log
-
-.env

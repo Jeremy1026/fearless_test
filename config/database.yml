@@ -1,22 +1,13 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem "sqlite3"
-#
 default: &default
   adapter: postgresql
 
 local: &local
   <<: *default
   encoding: unicode
-  host: localhost
+  host: db
   pool: 5
   username: <%= ENV.fetch('DATABASE_USER', ENV['USER']) %>
   password: <%= ENV.fetch('DATABASE_PASSWORD', '') %>
-  # The development port will change eventually to 5435 to match codeship's setting for operating multiple PSQL versions
-  port: <%= ENV.fetch('DATABASE_PORT', '5432') %>
-
 
 development:
   <<: *local

@@ -1,14 +1,11 @@
 default: &default
   adapter: postgresql
-
-local: &local
-  <<: *default
   encoding: unicode
   host: db
   pool: 5
-  username: <%= ENV.fetch('DATABASE_USER', ENV['USER']) %>
-  password: <%= ENV.fetch('DATABASE_PASSWORD', '') %>
+  username: 'postgres'
+  password: 'postgres'
 
 development:
-  <<: *local
-  database: <%= ENV.fetch('DATABASE_NAME_DEV', 'fearless_test_development') %>
+  <<: *default
+  database: 'fearless_test_development'
